@@ -11,6 +11,9 @@ public class Dice : MonoBehaviour
     
     private List<Side> _sides;
     private Vector3 DirectionToCamera => -Camera.main.transform.forward;
+    
+    [SerializeField]
+    private PlayerController _playerController;
 
     private void Awake()
     {
@@ -24,6 +27,8 @@ public class Dice : MonoBehaviour
 
     private void QueryBestSide()
     {
+        Side oldBestSide = BestSide;
+
         float bestDotProduct = GetDotProductOfSide(_sides[0]);
         BestSide = _sides[0];
 
@@ -38,11 +43,19 @@ public class Dice : MonoBehaviour
                 bestDotProduct = currentDotProduct;
             }
         }
+
+        oldBestSide?.ToggleHighlight(SideState.NotFacing);
+        BestSide.ToggleHighlight(_playerController.IsMoving ? SideState.Facing : SideState.Active);
     }
 
     private float GetDotProductOfSide(Side side)
     {
         Vector3 worldDirection = side.WorldDirection.normalized;
         return Vector3.Dot(worldDirection, DirectionToCamera);
+    }
+
+    private void OnValidate()
+    {
+        _playerController = GetComponent<PlayerController>();
     }
 }
