@@ -244,7 +244,7 @@ Transform:
   - {fileID: 6303351225647453321}
   - {fileID: 2581320583704340866}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -4.867, y: 30.063, z: -34.252}
 --- !u!33 &647299241083087596
 MeshFilter:
@@ -339,8 +339,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 647299241083087595}
   _dice: {fileID: 1507395921}
-  _linearForce: 100
-  _torqueMagnitude: 20
+  _linearForce:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 199.70006
+      inSlope: 66.71665
+      outSlope: 66.71665
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 600
+      inSlope: 66.71665
+      outSlope: 66.71665
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _torqueMagnitude:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 30
+      inSlope: 6
+      outSlope: 6
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 60
+      inSlope: 6
+      outSlope: 6
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1507395920
 MonoBehaviour:
   m_ObjectHideFlags: 0

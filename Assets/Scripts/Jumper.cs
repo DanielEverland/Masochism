@@ -14,16 +14,17 @@ public class Jumper : MonoBehaviour
 
     /// <summary>
     /// Magnitude applied linearly when jumping.
-    /// This is multiplied by the value of the dice that currently faces the camera.
+    /// The selected value is the value of the dice.
     /// </summary>
     [SerializeField]
-    private float _linearForce = 100.0f;
+    private AnimationCurve _linearForce;
 
     /// <summary>
     /// The amount of torque added when jumping
+    /// The selected value is the value of the dice.
     /// </summary>
     [SerializeField]
-    private float _torqueMagnitude = 10.0f;
+    private AnimationCurve _torqueMagnitude;
 
     public void Jump(Vector2 mouseDirection)
     {
@@ -36,7 +37,7 @@ public class Jumper : MonoBehaviour
 
     private void AddLinearInput(Vector2 jumpDirection)
     {
-        _rigidBody.AddForce(jumpDirection * _linearForce * _dice.BestSide.Number);
+        _rigidBody.AddForce(jumpDirection * _linearForce.Evaluate(_dice.BestSide.Number));
     }
 
     private void AddAngularImpulse()
@@ -49,7 +50,7 @@ public class Jumper : MonoBehaviour
             z = Random.Range(0.0f, 1.0f),
         };
 
-        _rigidBody.AddTorque(torque * _torqueMagnitude);
+        _rigidBody.AddTorque(torque * _torqueMagnitude.Evaluate(_dice.BestSide.Number));
     }
 
     private void OnValidate()
