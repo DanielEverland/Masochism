@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6048480385705552820}
   - component: {fileID: 925698099054283037}
+  - component: {fileID: 246576588}
   m_Layer: 0
   m_Name: dieWhite2
   m_TagString: Untagged
@@ -24,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498722898472102074}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.501, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 647299241083087599}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &925698099054283037
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &246576588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498722898472102074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 2
 --- !u!1 &613721915985118044
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2581320583704340866}
   - component: {fileID: 5814346084292181276}
+  - component: {fileID: 1854459134}
   m_Layer: 0
   m_Name: dieWhite6
   m_TagString: Untagged
@@ -168,6 +183,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1854459134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613721915985118044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 6
 --- !u!1 &647299241083087592
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,18 +377,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sides:
-  - Number: 1
-    LocalDirection: {x: 1, y: 0, z: 0}
-  - Number: 2
-    LocalDirection: {x: 0, y: -1, z: 0}
-  - Number: 3
-    LocalDirection: {x: 0, y: 0, z: -1}
-  - Number: 4
-    LocalDirection: {x: 0, y: 0, z: 1}
-  - Number: 5
-    LocalDirection: {x: 0, y: 1, z: 0}
-  - Number: 6
-    LocalDirection: {x: -1, y: 0, z: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1459673391037062639
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5651356182929760600}
   - component: {fileID: 904712035034984278}
+  - component: {fileID: 1204760994}
   m_Layer: 0
   m_Name: dieWhite4
   m_TagString: Untagged
@@ -385,14 +408,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459673391037062639}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 647299241083087599}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &904712035034984278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -445,6 +468,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1204760994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459673391037062639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 4
 --- !u!1 &2313177873582885223
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285390282918309405}
   - component: {fileID: 7128065098152557819}
+  - component: {fileID: 212667614}
   m_Layer: 0
   m_Name: dieWhite1
   m_TagString: Untagged
@@ -469,14 +506,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2313177873582885223}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.501, y: 0, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 647299241083087599}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!212 &7128065098152557819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -529,6 +566,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &212667614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313177873582885223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 1
 --- !u!1 &6321815432573641332
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6303351225647453321}
   - component: {fileID: 54213566845712733}
+  - component: {fileID: 636808484}
   m_Layer: 0
   m_Name: dieWhite5
   m_TagString: Untagged
@@ -613,6 +664,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &636808484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321815432573641332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 5
 --- !u!1 &7805276329448756180
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2609885339271996845}
   - component: {fileID: 303960480685199699}
+  - component: {fileID: 653630203}
   m_Layer: 0
   m_Name: dieWhite3
   m_TagString: Untagged
@@ -697,3 +762,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &653630203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805276329448756180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767954b1757fd4d852d3766532d6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 3

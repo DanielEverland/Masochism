@@ -2,16 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Defines information about a specific side of a dice
-/// </summary>
-[System.Serializable]
-public struct Side
-{
-    public int Number;
-    public Vector3 LocalDirection;
-}
-
 public class Dice : MonoBehaviour
 {
     /// <summary>
@@ -23,6 +13,11 @@ public class Dice : MonoBehaviour
     private List<Side> _sides;
 
     private Vector3 DirectionToCamera => -Camera.main.transform.forward;
+
+    private void Awake()
+    {
+        _sides = new List<Side>(GetComponentsInChildren<Side>());
+    }
 
     private void Update()
     {
@@ -49,16 +44,7 @@ public class Dice : MonoBehaviour
 
     private float GetDotProductOfSide(Side side)
     {
-        Vector3 worldDirection = transform.TransformDirection(side.LocalDirection.normalized);
+        Vector3 worldDirection = side.WorldDirection.normalized;
         return Vector3.Dot(worldDirection, DirectionToCamera);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        foreach (Side side in _sides)
-        {
-            Vector3 worldDirection = transform.TransformDirection(side.LocalDirection.normalized);
-            Gizmos.DrawLine(transform.position, transform.position + worldDirection * 2.0f);
-        }
     }
 }
