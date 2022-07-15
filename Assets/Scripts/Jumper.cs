@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Dice))]
 public class Jumper : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody _rigidBody;
 
+    [SerializeField]
+    private Dice _dice;
+
     /// <summary>
-    /// Magnitude applied linearly when jumping
+    /// Magnitude applied linearly when jumping.
+    /// This is multiplied by the value of the dice that currently faces the camera.
     /// </summary>
     [SerializeField]
-    private float _linearForce = 500.0f;
+    private float _linearForce = 100.0f;
 
     /// <summary>
     /// The amount of torque added when jumping
@@ -31,7 +36,7 @@ public class Jumper : MonoBehaviour
 
     private void AddLinearInput(Vector2 jumpDirection)
     {
-        _rigidBody.AddForce(jumpDirection * _linearForce);
+        _rigidBody.AddForce(jumpDirection * _linearForce * _dice.BestSide.Number);
     }
 
     private void AddAngularImpulse()
@@ -50,5 +55,6 @@ public class Jumper : MonoBehaviour
     private void OnValidate()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _dice = GetComponent<Dice>();
     }
 }

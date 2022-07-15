@@ -304,7 +304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 647299241083087595}
-  _linearForce: 500
+  _dice: {fileID: 1507395921}
+  _linearForce: 100
   _torqueMagnitude: 20
 --- !u!114 &1507395920
 MonoBehaviour:
