@@ -8,10 +8,8 @@ public class Dice : MonoBehaviour
     /// The side that currently faces the camera the most
     /// </summary>
     public Side BestSide { get; private set; }
-
-    [SerializeField]
+    
     private List<Side> _sides;
-
     private Vector3 DirectionToCamera => -Camera.main.transform.forward;
 
     private void Awake()
