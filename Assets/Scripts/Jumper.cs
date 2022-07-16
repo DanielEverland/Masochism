@@ -31,16 +31,22 @@ public class Jumper : MonoBehaviour
         // We don't care about the magnitude
         mouseDirection.Normalize();
         
-        AddLinearInput(mouseDirection);
-        AddAngularImpulse();
+        AddLinearInput(mouseDirection * _linearForce.Evaluate(_dice.BestSide.Number));
+        AddAngularImpulse(_torqueMagnitude.Evaluate(_dice.BestSide.Number));
     }
 
-    private void AddLinearInput(Vector2 jumpDirection)
+    public void Impulse(Vector2 impulse)
     {
-        _rigidBody.AddForce(jumpDirection * _linearForce.Evaluate(_dice.BestSide.Number));
+        AddLinearInput(impulse);
+        AddAngularImpulse(impulse.magnitude);
     }
 
-    private void AddAngularImpulse()
+    private void AddLinearInput(Vector2 linearImpulse)
+    {
+        _rigidBody.AddForce(linearImpulse);
+    }
+
+    private void AddAngularImpulse(float magnitude)
     {
         // Randomly choose a "direction" to rotate cube
         Vector3 torque = new Vector3
@@ -50,7 +56,7 @@ public class Jumper : MonoBehaviour
             z = Random.Range(0.0f, 1.0f),
         };
 
-        _rigidBody.AddTorque(torque * _torqueMagnitude.Evaluate(_dice.BestSide.Number));
+        _rigidBody.AddTorque(torque * magnitude);
     }
 
     private void OnValidate()

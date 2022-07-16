@@ -243,6 +243,7 @@ Transform:
   - {fileID: 5651356182929760600}
   - {fileID: 6303351225647453321}
   - {fileID: 2581320583704340866}
+  - {fileID: 4669313642516134538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -4.867, y: 30.063, z: -34.252}
@@ -437,6 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67389880c81cec409c5bb1a12e762dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnSelectedValue:
+    m_PersistentCalls:
+      m_Calls: []
   _playerController: {fileID: 1507395920}
 --- !u!1 &1459673391037062639
 GameObject:
@@ -741,6 +745,56 @@ MonoBehaviour:
   _activeColor: {r: 0.5369483, g: 0.90588236, b: 0.5176471, a: 1}
   _highlightedColor: {r: 0.90588236, g: 0.8674334, b: 0.5176471, a: 1}
   _notHighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &7491964540242726650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4669313642516134538}
+  - component: {fileID: 3806142562620232680}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4669313642516134538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491964540242726650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 647299241083087599}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3806142562620232680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491964540242726650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7fb5f05d3f9994d9db2abfc440742a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetValues: 01000000
+  _dice: {fileID: 0}
+  MinimumYComponent: 0.5
+  MaximumComponent: 2
+  ForceMagnitude: 1000
+  _jumper: {fileID: 0}
 --- !u!1 &7805276329448756180
 GameObject:
   m_ObjectHideFlags: 0
