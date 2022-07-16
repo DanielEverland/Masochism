@@ -371,6 +371,7 @@ MonoBehaviour:
         m_CallState: 2
   _timesCanJumpBetweenStopping: 1
   _rigidbody: {fileID: 647299241083087595}
+  _jumper: {fileID: 1507395919}
 --- !u!114 &1507395921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   _dice: {fileID: 0}
   _playerController: {fileID: 0}
   _timesCanJumpBeforeStoppingAmount: 2
+  _particleEffectPrefab: {fileID: 4487106585906862716, guid: 26095a5d3d5c69f42a60ffcff4195415, type: 3}
 --- !u!1 &7805276329448756180
 GameObject:
   m_ObjectHideFlags: 0

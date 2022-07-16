@@ -9,6 +9,9 @@ public class DoubleJumpEffect : EffectBase
 
     [SerializeField]
     private int _timesCanJumpBeforeStoppingAmount = 2;
+
+    [SerializeField]
+    private GameObject _particleEffectPrefab;
     
     private bool _isEffectActive;
     private bool _isArmed;
@@ -18,6 +21,8 @@ public class DoubleJumpEffect : EffectBase
         _isEffectActive = true;
         _isArmed = false;
         _playerController.TimesCanJumpBetweenStops = _timesCanJumpBeforeStoppingAmount;
+
+        Instantiate(_particleEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void Start()
