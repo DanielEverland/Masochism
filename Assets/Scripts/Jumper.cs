@@ -30,7 +30,7 @@ public class Jumper : MonoBehaviour
     {
         // We don't care about the magnitude
         mouseDirection.Normalize();
-        
+        EnablePhysics();
         AddLinearInput(mouseDirection);
         AddAngularImpulse();
     }
@@ -57,5 +57,10 @@ public class Jumper : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         _dice = GetComponent<Dice>();
+    }
+
+    private void EnablePhysics()
+    {
+        _rigidBody.isKinematic = false;
     }
 }
