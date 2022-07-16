@@ -41,7 +41,8 @@ public class Side : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Color _blockedColor = Color.red;
-
+    
+    [SerializeField]
     private SpriteRenderer _spriteRenderer;
     
     public void ToggleHighlight(SideState state)
