@@ -26,10 +26,19 @@ public class Jumper : MonoBehaviour
     [SerializeField]
     private AnimationCurve _torqueMagnitude;
 
+    public int TimesJumped { get; private set; }
+
+    private void Awake()
+    {
+        _dice.OnSelectedValue.AddListener(OnStopped);
+    }
+
     public void Jump(Vector2 mouseDirection)
     {
         if (_dice.State == DiceState.Blocked)
             return;
+
+        TimesJumped++;
 
         // We don't care about the magnitude
         mouseDirection.Normalize();
@@ -40,6 +49,8 @@ public class Jumper : MonoBehaviour
 
     public void Impulse(Vector2 impulse)
     {
+        TimesJumped++;
+
         AddLinearInput(impulse);
         AddAngularImpulse(impulse.magnitude);
     }
@@ -60,6 +71,11 @@ public class Jumper : MonoBehaviour
         };
 
         _rigidBody.AddTorque(torque * magnitude);
+    }
+
+    private void OnStopped(int newDiceValue)
+    {
+        TimesJumped = 0;
     }
 
     private void OnValidate()

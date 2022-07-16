@@ -369,7 +369,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _permitInputWhileMoving: 0
+  _timesCanJumpBetweenStopping: 1
   _rigidbody: {fileID: 647299241083087595}
 --- !u!114 &1507395921
 MonoBehaviour:
@@ -807,6 +807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4669313642516134538}
   - component: {fileID: 3806142562620232680}
+  - component: {fileID: 3787613153677785048}
   m_Layer: 0
   m_Name: Effects
   m_TagString: Untagged
@@ -841,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7fb5f05d3f9994d9db2abfc440742a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetValues: 010000000200000003000000040000000500000006000000
+  _targetValues: 01000000
   _dice: {fileID: 0}
   MinimumYComponent: 1
   MaximumComponent: 2
@@ -849,6 +850,22 @@ MonoBehaviour:
   ExplosionDelay: 1
   _jumper: {fileID: 0}
   _shaker: {fileID: 3667778056851701058}
+--- !u!114 &3787613153677785048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491964540242726650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856134dba190e9549ad9dc17421d7cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetValues: 06000000
+  _dice: {fileID: 0}
+  _playerController: {fileID: 0}
+  _timesCanJumpBeforeStoppingAmount: 2
 --- !u!1 &7805276329448756180
 GameObject:
   m_ObjectHideFlags: 0

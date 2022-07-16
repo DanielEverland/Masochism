@@ -26,7 +26,7 @@ public class Dice : MonoBehaviour
     /// Raised when the dice lands somewhere and a value has been chosen as the selected value.
     /// </summary>
     public UnityEvent<int> OnSelectedValue;
-
+    
     private Vector3 DirectionToCamera => -Camera.main.transform.forward;
 
     private List<Side> _sides;
@@ -106,7 +106,7 @@ public class Dice : MonoBehaviour
         if (State == DiceState.Blocked)
             return SideState.Disabled;
 
-        return _playerController.IsMoving ? SideState.Facing : SideState.Active;
+        return _playerController.CanJump ? SideState.Active : SideState.Facing;
     }
 
     private float GetDotProductOfSide(Side side)

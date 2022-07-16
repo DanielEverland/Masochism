@@ -17,7 +17,7 @@ public abstract class EffectBase : MonoBehaviour
 
     protected abstract void ActivateEffect();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _dice.OnSelectedValue.AddListener(OnSelectedValue);
     }
