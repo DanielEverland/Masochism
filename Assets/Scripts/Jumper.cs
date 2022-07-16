@@ -28,6 +28,9 @@ public class Jumper : MonoBehaviour
 
     public void Jump(Vector2 mouseDirection)
     {
+        if (_dice.State == DiceState.Blocked)
+            return;
+
         // We don't care about the magnitude
         mouseDirection.Normalize();
         

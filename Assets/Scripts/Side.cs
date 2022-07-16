@@ -8,6 +8,7 @@ public enum SideState
     Active,
     Facing,
     NotFacing,
+    Disabled,
 }
 
 public class Side : MonoBehaviour
@@ -35,6 +36,12 @@ public class Side : MonoBehaviour
     [SerializeField]
     private Color _notHighlightedColor = Color.white;
 
+    /// <summary>
+    /// Color to show when the dice is blocked
+    /// </summary>
+    [SerializeField]
+    private Color _blockedColor = Color.red;
+
     private SpriteRenderer _spriteRenderer;
     
     public void ToggleHighlight(SideState state)
@@ -48,6 +55,7 @@ public class Side : MonoBehaviour
         {
             SideState.Active => _activeColor,
             SideState.Facing => _highlightedColor,
+            SideState.Disabled => _blockedColor,
             _ => _notHighlightedColor
         };
     }

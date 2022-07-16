@@ -13,6 +13,8 @@ public abstract class EffectBase : MonoBehaviour
     [SerializeField]
     private Dice _dice;
 
+    protected Dice DiceComponent => _dice;
+
     protected abstract void ActivateEffect();
 
     private void Awake()
