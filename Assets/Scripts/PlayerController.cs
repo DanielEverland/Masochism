@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     /// Determines if object is moving linearly og angularly
     /// </summary>
     public bool IsMoving => !IsNearlyZero(_rigidbody.angularVelocity.sqrMagnitude) || !IsNearlyZero(_rigidbody.velocity.sqrMagnitude);
-
+    
     /// <summary>
     /// Raised when the player clicks the left mouse button.
     /// The vector is the relative position in world space.
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody _rigidbody;
 
-    void Update()
+    private void Update()
     {
         UpdateMousePositionInWorld();
         QueryMouseInput();
