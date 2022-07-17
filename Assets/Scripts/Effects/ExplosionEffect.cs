@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExplosionEffect : EffectBase
 {
@@ -21,6 +22,9 @@ public class ExplosionEffect : EffectBase
 
     [SerializeField]
     private Shaker _shaker;
+
+    [SerializeField]
+    private UnityEvent OnExplode;
 
     private float _explodeTime;
     private bool _isArmed;
@@ -57,6 +61,8 @@ public class ExplosionEffect : EffectBase
         forceDirection *= ForceMagnitude;
         
         _jumper.Impulse(forceDirection);
+
+        OnExplode.Invoke();
     }
 
     private new void OnValidate()

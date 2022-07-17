@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class EffectBase : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public abstract class EffectBase : MonoBehaviour
     [SerializeField]
     private Dice _dice;
 
+    [SerializeField]
+    private UnityEvent OnActivated;
+
     protected Dice DiceComponent => _dice;
 
     protected abstract void ActivateEffect();
@@ -24,8 +28,11 @@ public abstract class EffectBase : MonoBehaviour
 
     private void OnSelectedValue(int selectedValue)
     {
-        if(_targetValues.Contains(selectedValue))
+        if (_targetValues.Contains(selectedValue))
+        {
             ActivateEffect();
+            OnActivated.Invoke();
+        }
     }
 
     protected void OnValidate()
