@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Dice))]
@@ -26,6 +27,9 @@ public class Jumper : MonoBehaviour
     [SerializeField]
     private AnimationCurve _torqueMagnitude;
 
+    [SerializeField]
+    private UnityEvent OnJump;
+
     public int TimesJumped { get; private set; }
 
     private void Awake()
@@ -45,6 +49,8 @@ public class Jumper : MonoBehaviour
         
         AddLinearInput(mouseDirection * _linearForce.Evaluate(_dice.BestSide.Number));
         AddAngularImpulse(_torqueMagnitude.Evaluate(_dice.BestSide.Number));
+
+        OnJump.Invoke();
     }
 
     public void Impulse(Vector2 impulse)
