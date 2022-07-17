@@ -521,31 +521,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.809564
+      value: 0.6097395
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27880463
+      value: -0.5412519
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.50516135
+      value: 0.43085998
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10810269
+      value: -0.3868125
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 34.1
+      value: -19.07
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 66.2
+      value: 87.404
       objectReference: {fileID: 0}
     - target: {fileID: 1197765056483426308, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 7.4
+      value: -83.021
       objectReference: {fileID: 0}
     - target: {fileID: 3547616698914816675, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: _dice
@@ -555,6 +555,50 @@ PrefabInstance:
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1631720770}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[0].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[0].value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387087814324896468, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
+      propertyPath: _torqueMagnitude.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575102080903473053, guid: ac3f16debf8f62d47b41dcf7b24bd1db, type: 3}
       propertyPath: m_Name
       value: D20 player
