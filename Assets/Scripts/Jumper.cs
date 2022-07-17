@@ -26,21 +26,41 @@ public class Jumper : MonoBehaviour
     [SerializeField]
     private AnimationCurve _torqueMagnitude;
 
+    public int TimesJumped { get; private set; }
+
+    private void Awake()
+    {
+        _dice.OnSelectedValue.AddListener(OnStopped);
+    }
+
     public void Jump(Vector2 mouseDirection)
     {
+        if (_dice.State == DiceState.Blocked)
+            return;
+
+        TimesJumped++;
+
         // We don't care about the magnitude
         mouseDirection.Normalize();
         
-        AddLinearInput(mouseDirection);
-        AddAngularImpulse();
+        AddLinearInput(mouseDirection * _linearForce.Evaluate(_dice.BestSide.Number));
+        AddAngularImpulse(_torqueMagnitude.Evaluate(_dice.BestSide.Number));
     }
 
-    private void AddLinearInput(Vector2 jumpDirection)
+    public void Impulse(Vector2 impulse)
     {
-        _rigidBody.AddForce(jumpDirection * _linearForce.Evaluate(_dice.BestSide.Number));
+        TimesJumped++;
+
+        AddLinearInput(impulse);
+        AddAngularImpulse(impulse.magnitude);
     }
 
-    private void AddAngularImpulse()
+    private void AddLinearInput(Vector2 linearImpulse)
+    {
+        _rigidBody.AddForce(linearImpulse);
+    }
+
+    private void AddAngularImpulse(float magnitude)
     {
         // Randomly choose a "direction" to rotate cube
         Vector3 torque = new Vector3
@@ -50,7 +70,12 @@ public class Jumper : MonoBehaviour
             z = Random.Range(0.0f, 1.0f),
         };
 
-        _rigidBody.AddTorque(torque * _torqueMagnitude.Evaluate(_dice.BestSide.Number));
+        _rigidBody.AddTorque(torque * magnitude);
+    }
+
+    private void OnStopped(int newDiceValue)
+    {
+        TimesJumped = 0;
     }
 
     private void OnValidate()

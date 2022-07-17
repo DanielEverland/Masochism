@@ -16,6 +16,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public bool IsMoving => !IsNearlyZero(_rigidbody.angularVelocity.sqrMagnitude) || !IsNearlyZero(_rigidbody.velocity.sqrMagnitude);
     
+    public bool CanJump => !IsMoving || HasJumpsLeft();
+
+    public int TimesCanJumpBetweenStops
+    {
+        get => _timesCanJumpBetweenStopping;
+        set => _timesCanJumpBetweenStopping = value;
+    }
+
     /// <summary>
     /// Raised when the player clicks the left mouse button.
     /// The vector is the relative position in world space.
@@ -24,18 +32,32 @@ public class PlayerController : MonoBehaviour
     private UnityEvent<Vector2> _onLeftMouseClicked;
 
     /// <summary>
-    /// Should input querying be enabled while the object is moving?
+    /// Amount of times the dice can jump between stopping
     /// </summary>
     [SerializeField]
-    private bool _permitInputWhileMoving;
+    private int _timesCanJumpBetweenStopping = 1;
     
     [SerializeField]
     private Rigidbody _rigidbody;
 
+    [SerializeField]
+    private Jumper _jumper;
+    
+    private bool _shouldJump;
+    
     private void Update()
     {
         UpdateMousePositionInWorld();
         QueryMouseInput();
+    }
+
+    private void FixedUpdate()
+    {
+        if(_shouldJump)
+        {
+            _shouldJump = false;
+            _onLeftMouseClicked.Invoke(RelativeMousePosition);
+        }
     }
 
     private void UpdateMousePositionInWorld()
@@ -46,13 +68,18 @@ public class PlayerController : MonoBehaviour
 
     private void QueryMouseInput()
     {
-        if (IsMoving && !_permitInputWhileMoving)
+        if (!CanJump)
             return;
-
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            _onLeftMouseClicked.Invoke(RelativeMousePosition);
+            _shouldJump = true;
         }
+    }
+    
+    private bool HasJumpsLeft()
+    {
+        return _jumper.TimesJumped < _timesCanJumpBetweenStopping;
     }
 
     private bool IsNearlyZero(float value)
@@ -63,5 +90,6 @@ public class PlayerController : MonoBehaviour
     private void OnValidate()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _jumper = GetComponent<Jumper>();
     }
 }
