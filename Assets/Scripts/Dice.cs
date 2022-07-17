@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum DiceState
+{
+    Idle,
+    Moving,
+    Blocked,
+}
+
 public class Dice : MonoBehaviour
 {
     /// <summary>
@@ -11,17 +18,31 @@ public class Dice : MonoBehaviour
     public Side BestSide { get; private set; }
 
     /// <summary>
+    /// Determines what state the dice is in
+    /// </summary>
+    public DiceState State { get; private set; }
+
+    /// <summary>
     /// Raised when the dice lands somewhere and a value has been chosen as the selected value.
     /// </summary>
     public UnityEvent<int> OnSelectedValue;
-
+    
     private Vector3 DirectionToCamera => -Camera.main.transform.forward;
 
     private List<Side> _sides;
-    private bool _hasBeenMoving;
     
     [SerializeField]
     private PlayerController _playerController;
+
+    public void Block()
+    {
+        State = DiceState.Blocked;
+    }
+
+    public void Unblock()
+    {
+        State = _playerController.IsMoving ? DiceState.Moving : DiceState.Idle;
+    }
 
     private void Awake()
     {
@@ -36,15 +57,19 @@ public class Dice : MonoBehaviour
 
     private void QueryHasLanded()
     {
-        if (_hasBeenMoving && !_playerController.IsMoving)
+        // We don't want to invoke new values while the dice is blocked
+        if (State == DiceState.Blocked)
+            return;
+
+        if (State == DiceState.Moving && !_playerController.IsMoving)
         {
-            _hasBeenMoving = false;
+            State = DiceState.Idle;
 
             SelectValue();
         }
-        else if (!_hasBeenMoving && _playerController.IsMoving)
+        else if (State == DiceState.Idle && _playerController.IsMoving)
         {
-            _hasBeenMoving = true;
+            State = DiceState.Moving;
         }
     }
 
@@ -73,7 +98,15 @@ public class Dice : MonoBehaviour
         }
 
         oldBestSide?.ToggleHighlight(SideState.NotFacing);
-        BestSide.ToggleHighlight(_playerController.IsMoving ? SideState.Facing : SideState.Active);
+        BestSide.ToggleHighlight(GetSideState());
+    }
+
+    private SideState GetSideState()
+    {
+        if (State == DiceState.Blocked)
+            return SideState.Disabled;
+
+        return _playerController.CanJump ? SideState.Active : SideState.Facing;
     }
 
     private float GetDotProductOfSide(Side side)
