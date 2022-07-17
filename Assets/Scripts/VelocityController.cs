@@ -18,6 +18,10 @@ public class VelocityController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_rigidBody.velocity.magnitude > Mathf.Abs(MIN_VELOCITY) || _rigidBody.angularVelocity.magnitude > Mathf.Abs(MIN_ANGULARVELOCITY))
+        {
+            Debug.Log("Velocity: " + _rigidBody.velocity.magnitude + " Angular Velocity: " + _rigidBody.angularVelocity.magnitude);
+        }
         DisableVelocity();
     }
 
